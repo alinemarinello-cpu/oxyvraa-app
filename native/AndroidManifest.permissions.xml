@@ -1,0 +1,13 @@
+<!--
+  Oxyvra Biossegurança — permissões nativas Android
+  Copie o bloco abaixo para android/app/src/main/AndroidManifest.xml
+  logo após a tag <manifest ...> e antes de <application ...>.
+-->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+<!-- A câmera e o GPS são recomendados, não obrigatórios (evita bloqueio em tablets sem hardware) -->
+<uses-feature android:name="android.hardware.camera" android:required="false" />
+<uses-feature android:name="android.hardware.location.gps" android:required="false" />

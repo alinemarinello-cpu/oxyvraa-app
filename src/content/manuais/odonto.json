@@ -1,0 +1,124 @@
+{
+  "id": "odonto",
+  "rotulo": "Odontologia",
+  "titulo": "Manual do Oxyvra — Consultórios e Clínicas Odontológicas",
+  "subtitulo": "Passo a passo para organizar e comprovar a conformidade da sua clínica",
+  "intro": "Este manual foi escrito para você usar o Oxyvra sozinho, sem precisar de treinamento. Siga os capítulos na ordem: em cerca de 30 minutos a sua clínica já está configurada e a equipe já consegue registrar a rotina pelo celular.",
+  "secoes": [
+    {
+      "titulo": "1. Seus primeiros 10 minutos",
+      "intro": "Criar a conta e entrar pela primeira vez.",
+      "passos": [
+        "Abra o site da Oxyvra no celular ou no computador.",
+        "Na primeira tela, escolha o cartão \"Odontologia\".",
+        "Toque em \"Criar conta com e-mail e senha\".",
+        "Informe o e-mail que você usa no dia a dia e crie uma senha. Guarde essa senha: é ela que abre a parte de gestão.",
+        "Abra a caixa de entrada e confirme o e-mail que a Oxyvra enviou. Se não achar, veja também a pasta de spam.",
+        "Volte ao app e entre com o mesmo e-mail e senha. Você cai direto no assistente de configuração."
+      ]
+    },
+    {
+      "titulo": "2. Configuração inicial (assistente em 3 etapas)",
+      "intro": "O assistente aparece sozinho no primeiro acesso. Ele pergunta só o essencial.",
+      "passos": [
+        "Etapa 1 — Dados da clínica: nome, CNPJ, cidade e estado. Esses dados saem impressos nos relatórios e no dossiê.",
+        "Etapa 2 — Tamanho: informe quantos consultórios (cadeiras) você tem. Isso define o seu plano e a quantidade de kits de insumos.",
+        "Etapa 3 — PIN da equipe: crie um código de 4 números. É com ele que auxiliares e técnicos entram no celular, sem e-mail e sem senha.",
+        "Ao terminar, você cai no Painel. O período de teste gratuito de 7 dias começa nesse momento."
+      ],
+      "itens": [
+        {
+          "nome": "Onde mudar depois",
+          "texto": "Painel → Consultórios permite editar nome, endereço e PIN de cada unidade a qualquer momento."
+        }
+      ]
+    },
+    {
+      "titulo": "3. Quem usa o quê",
+      "intro": "São três formas de entrar. Escolha a certa para cada pessoa.",
+      "itens": [
+        {
+          "nome": "Você (dono ou responsável técnico)",
+          "texto": "Entra com e-mail e senha. Vê tudo: conformidade, documentos, equipe, assinatura e relatórios."
+        },
+        {
+          "nome": "Equipe de campo (ASB, TSB, auxiliar de limpeza)",
+          "texto": "Na tela inicial toca em \"Equipe de campo — entrar com PIN\" e digita os 4 números. Vê apenas os checklists e os registros do dia. Nunca vê valores nem dados financeiros."
+        },
+        {
+          "nome": "Gestor convidado (contador, consultor, sócio)",
+          "texto": "Você envia um convite em Painel → Acessos de gestores. Ele consulta os registros, mas não altera nada."
+        }
+      ]
+    },
+    {
+      "titulo": "4. O dia a dia da equipe (celular)",
+      "intro": "É a parte mais usada. Leva menos de um minuto por registro.",
+      "passos": [
+        "A pessoa abre o app e entra com o PIN (ou lê o QR Code colado no consultório).",
+        "Escolhe o ambiente/consultório onde está.",
+        "Escolhe a ação da lista (limpeza, desinfecção, esterilização, conferência).",
+        "Tira a foto pedida. A foto sai com data, hora e localização gravadas — é isso que serve de prova.",
+        "Toca em \"Concluir\". Pronto, o registro aparece no seu painel na hora.",
+        "Sem internet? O app guarda tudo no celular e envia sozinho assim que o sinal voltar. Aparece o aviso \"aguardando envio\"; não apague o app antes de sincronizar."
+      ]
+    },
+    {
+      "titulo": "5. Tela por tela do painel",
+      "intro": "O que existe em cada item do menu e para que serve.",
+      "itens": [
+        { "nome": "Dashboard Odonto", "texto": "Tela inicial. Mostra o índice de conformidade, alertas do dia e o botão do relatório de auditoria dos últimos 90 dias." },
+        { "nome": "RDC 1.002/2025", "texto": "O coração do sistema. Lista o que precisa ser feito, como fazer, como comprovar, o prazo e o status de cada requisito." },
+        { "nome": "RDC → Diagnóstico", "texto": "Questionário inicial. Responda uma vez para o sistema saber o que se aplica à sua clínica e calcular a sua nota." },
+        { "nome": "RDC → Plano de ação", "texto": "A lista de pendências em ordem de prioridade. Vá resolvendo de cima para baixo." },
+        { "nome": "RDC → Evidências", "texto": "Onde ficam guardadas as fotos, laudos e documentos que comprovam cada item." },
+        { "nome": "RDC → Riscos", "texto": "Mapa dos pontos frágeis da clínica e das medidas adotadas." },
+        { "nome": "Autoclaves e testes", "texto": "Registro de cada ciclo de esterilização e do teste biológico semanal, com foto do resultado." },
+        { "nome": "Checklists de biossegurança", "texto": "As rotinas que a equipe executa no celular. Você pode ativar, desativar e conferir o que foi feito." },
+        { "nome": "Dossiê e selo digital", "texto": "Gera o PDF completo da conformidade e o selo com QR Code que o paciente pode conferir." },
+        { "nome": "Pasta da Vigilância", "texto": "Os documentos exigidos, organizados em pastas, com aviso de vencimento." },
+        { "nome": "Treinamentos", "texto": "Registro de quem foi treinado, em quê e quando." },
+        { "nome": "Kit Full Care / Insumos", "texto": "Pedido mensal dos produtos e acompanhamento das entregas." },
+        { "nome": "Consultórios", "texto": "Cadastro das cadeiras e unidades, com o PIN e o QR Code de cada uma." },
+        { "nome": "Acessos de gestores", "texto": "Convidar e remover pessoas que consultam o sistema." },
+        { "nome": "Assinatura", "texto": "Seu plano, a forma de pagamento e as notas." }
+      ]
+    },
+    {
+      "titulo": "6. Como comprovar a conformidade",
+      "intro": "Tudo que a fiscalização costuma pedir sai em PDF, pronto para imprimir ou enviar.",
+      "passos": [
+        "Dossiê completo: Painel → Dossiê e selo digital → \"Gerar dossiê\". Sai em PDF com os registros do período.",
+        "Relatório de auditoria: na tela inicial do painel, botão \"Relatório de auditoria\" — consolidado dos últimos 90 dias.",
+        "Pasta da Vigilância: Painel → Pasta da Vigilância → baixar a pasta inteira ou um documento específico.",
+        "Selo público: imprima e cole na recepção. Quem apontar a câmera vê a situação atualizada da clínica.",
+        "No plano Clínica, o PDF sai assinado digitalmente com código de verificação."
+      ]
+    },
+    {
+      "titulo": "7. Planos e pagamento",
+      "itens": [
+        { "nome": "Teste gratuito", "texto": "7 dias com tudo liberado. Os PDFs saem com marca d'água de teste." },
+        { "nome": "Plano Consultório", "texto": "1 cadeira — R$ 134 por mês. No anual, você paga 10 meses e usa 12: R$ 1.340 à vista." },
+        { "nome": "Plano Clínica", "texto": "2 a 4 cadeiras — R$ 188 por mês, ou R$ 1.880 à vista no anual. Inclui usuários ilimitados, modo sem internet e PDF assinado." },
+        { "nome": "Kit mensal de insumos (opcional)", "texto": "Produtos entregues todo mês, cobrados por cadeira junto com o plano. Você escolhe a quantidade na contratação." },
+        { "nome": "Como contratar", "texto": "Painel → Assinatura → escolher o plano → pagar com cartão, PIX ou boleto." }
+      ]
+    },
+    {
+      "titulo": "8. Problemas comuns",
+      "itens": [
+        { "nome": "Esqueci a senha", "texto": "Na tela de entrada toque em \"Esqueci minha senha\". Chega um e-mail com o link para criar outra." },
+        { "nome": "Esqueci o PIN da equipe", "texto": "Entre com e-mail e senha e veja ou troque em Painel → Consultórios." },
+        { "nome": "A foto não enviou", "texto": "É falta de sinal. O registro fica guardado e sobe sozinho quando a internet voltar." },
+        { "nome": "A equipe não acha onde entrar", "texto": "Na primeira tela do app existe o botão \"Equipe de campo — entrar com PIN\"." },
+        { "nome": "Abri mais consultórios", "texto": "Cadastre em Painel → Consultórios e ajuste o plano em Painel → Assinatura." },
+        { "nome": "Preciso de ajuda", "texto": "Fale com a Oxyvra no WhatsApp (19) 99888-2050." }
+      ]
+    },
+    {
+      "titulo": "9. Aviso importante",
+      "intro": "O Oxyvra organiza, registra e comprova a sua rotina de biossegurança, com base nos requisitos aplicáveis da RDC Anvisa nº 1.002/2025. O sistema não constitui certificação, aprovação ou garantia de aprovação por qualquer órgão de vigilância sanitária. A responsabilidade técnica pelos procedimentos continua sendo do profissional responsável pelo serviço."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "ilpi",
+  "rotulo": "Lares de Idosos",
+  "titulo": "Manual do Oxyvra — Lares de Idosos (ILPIs)",
+  "subtitulo": "Passo a passo para registrar e comprovar a biossegurança da casa",
+  "intro": "Este manual mostra como a equipe registra a rotina de higienização e biossegurança do lar pelo celular, e como a coordenação acompanha e comprova tudo. O Oxyvra para ILPIs cuida da biossegurança da casa — não trata de medicamentos.",
+  "secoes": [
+    {
+      "titulo": "1. Seus primeiros 10 minutos",
+      "passos": [
+        "Abra o site da Oxyvra no celular ou no computador.",
+        "Na primeira tela, escolha o cartão \"Lares de Idosos\".",
+        "Toque em \"Criar conta com e-mail e senha\" e cadastre o e-mail da coordenação.",
+        "Confirme o e-mail recebido (veja também a pasta de spam).",
+        "Entre com e-mail e senha. O assistente de configuração abre sozinho."
+      ]
+    },
+    {
+      "titulo": "2. Configuração inicial",
+      "passos": [
+        "Informe o nome da instituição, CNPJ, cidade e estado.",
+        "Informe quantos residentes e quantos colaboradores a casa tem.",
+        "Cadastre os ambientes: quartos, banheiros, refeitório, lavanderia, sala de convivência, área de resíduos.",
+        "Crie o PIN de 4 números da equipe.",
+        "Imprima o QR Code de cada ambiente e cole na parede para a equipe ler no início da tarefa."
+      ]
+    },
+    {
+      "titulo": "3. Quem usa o quê",
+      "itens": [
+        { "nome": "Coordenação / responsável técnico", "texto": "Entra com e-mail e senha e vê tudo." },
+        { "nome": "Equipe do turno", "texto": "Entra com PIN pelo botão \"Equipe de campo\" na primeira tela. Vê só as tarefas do turno." },
+        { "nome": "Convidado (família, consultor, mantenedor)", "texto": "Recebe convite e apenas consulta os registros." }
+      ]
+    },
+    {
+      "titulo": "4. O dia a dia da equipe",
+      "passos": [
+        "Entrar com o PIN e abrir o Turno.",
+        "Escolher o ambiente (ou ler o QR Code na parede).",
+        "Executar o checklist da rotina: higienização de ambientes, saneantes na diluição certa, materiais separados por área, objetos compartilhados, higiene das mãos.",
+        "Tirar a foto pedida — data, hora e local ficam gravados.",
+        "Registrar sinais vitais e ocorrências quando houver.",
+        "Concluir o turno. Sem internet, tudo fica guardado e sobe sozinho depois."
+      ]
+    },
+    {
+      "titulo": "5. Tela por tela",
+      "itens": [
+        { "nome": "Turno", "texto": "Tela inicial da equipe: situação online/offline, contadores do turno e alertas." },
+        { "nome": "Checklists", "texto": "As rotinas de biossegurança da casa, organizadas por ambiente." },
+        { "nome": "Sinais", "texto": "Registro de sinais vitais dos residentes, quando a rotina exigir." },
+        { "nome": "Histórico / auditoria", "texto": "Tudo que foi feito, por quem e quando, sem possibilidade de apagar." },
+        { "nome": "Ocorrências", "texto": "Qualquer acontecimento fora da rotina, com foto e descrição." },
+        { "nome": "Documentos", "texto": "Laudos, fichas de produtos e comprovantes, com aviso de vencimento." },
+        { "nome": "Acessos", "texto": "Convidar e remover pessoas que consultam o sistema." }
+      ]
+    },
+    {
+      "titulo": "6. Como comprovar",
+      "passos": [
+        "Relatório de 90 dias: botão na tela inicial do painel, em PDF pronto para imprimir.",
+        "Dossiê por período: escolha as datas e gere o PDF com registros e fotos.",
+        "Selo público com QR Code para a recepção: famílias e visitantes conferem a rotina atualizada.",
+        "Os registros guardam autor, data, hora e localização — é isso que dá valor de prova."
+      ]
+    },
+    {
+      "titulo": "7. Problemas comuns",
+      "itens": [
+        { "nome": "Esqueci a senha", "texto": "Toque em \"Esqueci minha senha\" e siga o link enviado por e-mail." },
+        { "nome": "Esqueci o PIN", "texto": "Entre com e-mail e senha e consulte ou troque no cadastro de unidades." },
+        { "nome": "A foto não enviou", "texto": "Falta de sinal. O registro sobe sozinho quando a internet voltar." },
+        { "nome": "Troquei de celular", "texto": "Basta entrar com o PIN no aparelho novo; nada se perde." },
+        { "nome": "Preciso de ajuda", "texto": "WhatsApp da Oxyvra: (19) 99888-2050. Também agendamos visita técnica." }
+      ]
+    },
+    {
+      "titulo": "8. Aviso importante",
+      "intro": "O Oxyvra organiza, registra e comprova a rotina de biossegurança da instituição, com base nos requisitos aplicáveis às ILPIs (RDC 502/2021 e RDC 222/2018). O sistema não constitui certificação, aprovação ou garantia de aprovação por qualquer órgão de vigilância sanitária. A responsabilidade técnica pelos procedimentos continua sendo da instituição."
+    }
+  ]
+}

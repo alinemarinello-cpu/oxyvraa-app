@@ -1,0 +1,83 @@
+{
+  "id": "escola",
+  "rotulo": "Escolas e Creches",
+  "titulo": "Manual do Oxyvra — Escolas Infantis, Creches e Berçários",
+  "subtitulo": "Passo a passo para registrar e comprovar a rotina de limpeza e biossegurança",
+  "intro": "Este manual mostra, em linguagem simples, como usar o Oxyvra na sua instituição: a equipe registra a limpeza pelo celular e a coordenação acompanha tudo em tempo real, com prova para apresentar às famílias e à fiscalização.",
+  "secoes": [
+    {
+      "titulo": "1. Seus primeiros 10 minutos",
+      "passos": [
+        "Abra o site da Oxyvra no celular ou no computador.",
+        "Na primeira tela, escolha o cartão \"Escolas e Creches\".",
+        "Toque em \"Criar conta com e-mail e senha\" e cadastre o e-mail da coordenação.",
+        "Confirme o e-mail que chegou na caixa de entrada (veja também o spam).",
+        "Entre com e-mail e senha. O assistente de configuração abre sozinho."
+      ]
+    },
+    {
+      "titulo": "2. Configuração inicial",
+      "passos": [
+        "Informe o nome da instituição, CNPJ, cidade e estado — esses dados saem nos relatórios.",
+        "Informe o número de alunos e de colaboradores.",
+        "Cadastre os ambientes: salas, berçário, banheiros, refeitório, parque, secretaria.",
+        "Crie o PIN de 4 números da equipe de limpeza.",
+        "Imprima o QR Code de cada ambiente (Painel → Unidades) e cole na parede: a equipe lê o código e já entra no ambiente certo."
+      ]
+    },
+    {
+      "titulo": "3. Quem usa o quê",
+      "itens": [
+        { "nome": "Coordenação / direção", "texto": "Entra com e-mail e senha. Vê todos os registros, relatórios e documentos." },
+        { "nome": "Equipe de limpeza", "texto": "Toca em \"Equipe de campo — entrar com PIN\" e digita 4 números. Vê apenas o que precisa fazer." },
+        { "nome": "Convidado (mantenedor, consultor)", "texto": "Recebe convite em Painel → Acessos de gestores e apenas consulta." }
+      ]
+    },
+    {
+      "titulo": "4. O dia a dia da equipe",
+      "passos": [
+        "Entrar com o PIN ou ler o QR Code do ambiente.",
+        "Escolher a ação: limpeza de sala, desinfecção de banheiro, higienização de brinquedos, troca de lixo.",
+        "Tirar a foto pedida — ela grava data, hora e local automaticamente.",
+        "Concluir. O registro aparece na hora para a coordenação.",
+        "Sem internet o app guarda tudo e envia sozinho quando o sinal voltar."
+      ]
+    },
+    {
+      "titulo": "5. Tela por tela do painel",
+      "itens": [
+        { "nome": "Tela inicial", "texto": "Resumo do dia, alertas e o botão do relatório dos últimos 90 dias." },
+        { "nome": "Checklists", "texto": "As rotinas que a equipe executa. Você define o que aparece no celular." },
+        { "nome": "Unidades e ambientes", "texto": "Cadastro de salas e espaços, com PIN e QR Code de cada um." },
+        { "nome": "Documentos", "texto": "Fichas de produtos, laudos e comprovantes, com aviso de vencimento." },
+        { "nome": "Ocorrências", "texto": "Registro de qualquer acontecimento fora da rotina, com foto." },
+        { "nome": "Histórico", "texto": "Tudo que foi feito, por quem e quando — não pode ser apagado." },
+        { "nome": "Treinamentos", "texto": "Quem foi treinado, em quê e quando." },
+        { "nome": "Acessos", "texto": "Convidar e remover pessoas." }
+      ]
+    },
+    {
+      "titulo": "6. Como comprovar para famílias e fiscalização",
+      "passos": [
+        "Relatório de 90 dias: botão na tela inicial do painel, sai em PDF pronto para imprimir.",
+        "Dossiê do período: escolha as datas e gere o PDF com todos os registros e fotos.",
+        "Selo público com QR Code: imprima e cole na entrada. Os pais apontam a câmera e veem a rotina de higienização atualizada.",
+        "Comunicação com as famílias: envie o PDF ou o link do selo pelo grupo da escola."
+      ]
+    },
+    {
+      "titulo": "7. Problemas comuns",
+      "itens": [
+        { "nome": "Esqueci a senha", "texto": "Toque em \"Esqueci minha senha\" na tela de entrada e siga o link que chega por e-mail." },
+        { "nome": "Esqueci o PIN", "texto": "Entre com e-mail e senha e consulte ou troque em Painel → Unidades." },
+        { "nome": "A foto não subiu", "texto": "É falta de sinal; o registro sobe sozinho depois. Não desinstale o app antes." },
+        { "nome": "Quero mais ambientes", "texto": "Cadastre em Painel → Unidades, sem limite de quantidade." },
+        { "nome": "Preciso de ajuda", "texto": "WhatsApp da Oxyvra: (19) 99888-2050. Também agendamos visita técnica." }
+      ]
+    },
+    {
+      "titulo": "8. Aviso importante",
+      "intro": "O Oxyvra organiza, registra e comprova a rotina de limpeza e biossegurança da instituição. O sistema não constitui certificação, aprovação ou garantia de aprovação por qualquer órgão de vigilância sanitária ou de educação. A responsabilidade pelos procedimentos continua sendo da instituição."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE public.organizacoes ALTER COLUMN trial_expira_em SET DEFAULT (now() + interval '7 days');

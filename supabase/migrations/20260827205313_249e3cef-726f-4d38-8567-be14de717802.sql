@@ -1,0 +1,1 @@
+ALTER TABLE public.prefeituras ADD COLUMN IF NOT EXISTS cnpj text;

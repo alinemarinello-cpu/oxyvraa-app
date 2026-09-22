@@ -1,0 +1,12 @@
+<!--
+  Oxyvra Biossegurança — permissões nativas iOS
+  Copie as chaves abaixo para dentro do <dict> principal de ios/App/App/Info.plist.
+-->
+<key>NSCameraUsageDescription</key>
+<string>A câmera é usada para registrar a foto de evidência da higienização no momento da execução do serviço. Não acessamos a galeria do aparelho.</string>
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>A localização confirma que a higienização foi executada dentro da unidade contratada (raio de 150 m). Usada apenas durante o registro do serviço.</string>
+
+<key>NSPhotoLibraryUsageDescription</key>
+<string>O app não utiliza fotos da galeria. Somente imagens capturadas ao vivo pela câmera são aceitas como evidência.</string>

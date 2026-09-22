@@ -1,0 +1,1 @@
+alter table public.organizacoes add column if not exists segmento text not null default 'odonto';

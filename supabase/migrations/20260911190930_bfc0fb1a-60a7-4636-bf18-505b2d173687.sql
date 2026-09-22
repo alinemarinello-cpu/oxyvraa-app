@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.registrar_historico_requisito() FROM PUBLIC, anon, authenticated;
