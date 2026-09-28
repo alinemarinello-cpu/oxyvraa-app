@@ -1,0 +1,37 @@
+workflows:
+  ios-automatic-workflow:
+    name: iOS App Workflow
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      vars:
+        BUNDLE_ID: "com.oxyvra.app"
+      cocoapods: default
+    scripts:
+      - name: Install npm dependencies
+        script: |
+          npm install
+      - name: Build web assets
+        script: |
+          npm run build
+      - name: Setup Capacitor iOS
+        script: |
+          npx cap sync ios
+      - name: Set up code signing settings
+        script: |
+          app-store-connect fetch-signing-files "$BUNDLE_ID" --type DEVELOPMENT
+      - name: Increment build number
+        script: |
+          cd ios/App
+          agvtool next-version -all
+      - name: Build iOS Binary
+        script: |
+          xcodebuild -workspace ios/App/App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -archivePath build/App.xcarchive \
+            archive \
+            CODE_SIGN_STYLE="Automatic"
+    artifacts:
+      - build/*.ipa
+      - ~/Library/Developer/Xcode/DerivedData/**/Build/Products/Release-iphoneos/*.app
