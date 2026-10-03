@@ -1,29 +1,47 @@
-name: Build iOS App
+name: Diagnose Oxyvra Build
 
 on:
-  push:
-    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build:
-    runs-on: macos-latest
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
+          cache: 'npm'
 
-      - name: Install Dependencies & Build Web App
+      - name: Show Environment
         run: |
-          npm install
-          npm run build
+          node --version
+          npm --version
 
-      - name: Initialize Capacitor
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Web App
+        run: npm run build
+
+      - name: Inspect Build Output
         run: |
-          npx cap init Oxyvra com.oxyvra.app --web-dir dist
-          npx cap add ios
-          npx cap sync ios
+          echo "===== ROOT ====="
+          ls -la
+
+          for dir in dist .output build public; do
+            if [ -d "$dir" ]; then
+              echo ""
+              echo "===== $dir ====="
+              du -sh "$dir" || true
+              find "$dir" -maxdepth 3 -type f | head -100
+            fi
+          done
