@@ -1,4 +1,4 @@
-name: Diagnose Oxyvra Packaging
+name: Test Oxyvra iOS Cloud Build
 
 on:
   workflow_dispatch:
@@ -7,9 +7,9 @@ permissions:
   contents: read
 
 jobs:
-  diagnose:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+  ios-test:
+    runs-on: macos-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout Repository
@@ -24,40 +24,43 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build Web App
+      - name: Build Web Project
         run: npm run build
 
-      - name: Locate Capacitor Web App
+      - name: Create Temporary Capacitor Placeholder
         run: |
-          echo "========== POSSIBLE INDEX FILES =========="
-          find . \
-            -path './node_modules' -prune -o \
-            -type f -name 'index.html' -print
+          mkdir -p public
+          cat > public/index.html <<'EOF'
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width,initial-scale=1">
+              <title>Oxyvra</title>
+            </head>
+            <body>
+              <p>Oxyvra</p>
+            </body>
+          </html>
+          EOF
 
-          echo ""
-          echo "========== EXPECTED LOCATIONS =========="
+      - name: Sync Capacitor iOS
+        run: npx cap sync ios
 
-          for file in \
-            public/index.html \
-            dist/index.html \
-            dist/client/index.html \
-            .output/public/index.html
-          do
-            if [ -f "$file" ]; then
-              echo "FOUND: $file"
-            else
-              echo "MISSING: $file"
-            fi
-          done
+      - name: Resolve iOS Packages
+        run: |
+          xcodebuild \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -resolvePackageDependencies
 
-          echo ""
-          echo "========== .OUTPUT =========="
-          find .output -maxdepth 3 -print 2>/dev/null | sort | head -250
-
-          echo ""
-          echo "========== DIST =========="
-          find dist -maxdepth 3 -print 2>/dev/null | sort | head -250
-
-          echo ""
-          echo "========== PUBLIC =========="
-          find public -maxdepth 2 -print 2>/dev/null | sort | head -100
+      - name: Build iOS Simulator
+        run: |
+          xcodebuild \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
