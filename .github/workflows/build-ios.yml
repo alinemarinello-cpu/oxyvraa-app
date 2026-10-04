@@ -1,29 +1,93 @@
-name: Build iOS App
+name: Test Oxyvra iOS Runtime
 
 on:
-  push:
-    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  ios-runtime:
     runs-on: macos-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
+          cache: 'npm'
 
-      - name: Install Dependencies & Build Web App
-        run: |
-          npm install
-          npm run build
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: Initialize Capacitor
+      - name: Build Web Project
+        run: npm run build
+
+      - name: Create Temporary Capacitor Placeholder
         run: |
-          npx cap init Oxyvra com.oxyvra.app --web-dir dist
-          npx cap add ios
-          npx cap sync ios
+          mkdir -p public
+          cat > public/index.html <<'EOF'
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width,initial-scale=1">
+              <title>Oxyvra</title>
+            </head>
+            <body>
+              <p>Oxyvra</p>
+            </body>
+          </html>
+          EOF
+
+      - name: Sync Capacitor iOS
+        run: npx cap sync ios
+
+      - name: Build Simulator App
+        run: |
+          xcodebuild \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Launch App in iPhone Simulator
+        run: |
+          UDID=$(xcrun simctl list devices available | grep -m1 'iPhone' | grep -oE '[0-9A-F-]{36}')
+
+          if [ -z "$UDID" ]; then
+            echo "Nenhum simulador de iPhone encontrado."
+            exit 1
+          fi
+
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+
+          APP_PATH="build/DerivedData/Build/Products/Debug-iphonesimulator/App.app"
+
+          test -d "$APP_PATH"
+
+          BUNDLE_ID=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP_PATH/Info.plist")
+
+          echo "Bundle ID: $BUNDLE_ID"
+
+          xcrun simctl install "$UDID" "$APP_PATH"
+          xcrun simctl launch "$UDID" "$BUNDLE_ID"
+
+          sleep 15
+
+          xcrun simctl io "$UDID" screenshot oxyvra-simulator.png
+
+      - name: Save Simulator Screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: oxyvra-simulator-screenshot
+          path: oxyvra-simulator.png

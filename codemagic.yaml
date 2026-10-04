@@ -1,37 +1,96 @@
 workflows:
-  ios-automatic-workflow:
-    name: iOS App Workflow
+  ios-app-store:
+    name: Oxyvra iOS App Store
     max_build_duration: 60
-    instance_type: mac_mini_m1
+    instance_type: mac_mini_m2
+
+    integrations:
+      app_store_connect: V22S45JKR9
+
     environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.oxyvra.app
+
       vars:
         BUNDLE_ID: "com.oxyvra.app"
-      cocoapods: default
+
+      node: v22.12.0
+      xcode: latest
+
     scripts:
-      - name: Install npm dependencies
+      - name: Install dependencies
         script: |
-          npm install
-      - name: Build web assets
+          npm ci
+
+      - name: Validate Oxyvra web project
         script: |
           npm run build
-      - name: Setup Capacitor iOS
+
+      - name: Prepare Capacitor iOS
         script: |
+          mkdir -p public
+
+          if [ ! -f public/index.html ]; then
+            cat > public/index.html <<'EOF'
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width,initial-scale=1">
+              <title>Oxyvra</title>
+            </head>
+            <body>
+              <p>Oxyvra</p>
+            </body>
+          </html>
+          EOF
+          fi
+
           npx cap sync ios
-      - name: Set up code signing settings
+
+      - name: Configure iOS permissions
         script: |
-          app-store-connect fetch-signing-files "$BUNDLE_ID" --type DEVELOPMENT
-      - name: Increment build number
+          PLIST="$CM_BUILD_DIR/ios/App/App/Info.plist"
+
+          /usr/libexec/PlistBuddy \
+            -c "Delete :NSCameraUsageDescription" \
+            "$PLIST" 2>/dev/null || true
+
+          /usr/libexec/PlistBuddy \
+            -c "Add :NSCameraUsageDescription string A câmera é usada para registrar fotos de evidência durante a execução dos serviços." \
+            "$PLIST"
+
+          /usr/libexec/PlistBuddy \
+            -c "Delete :NSLocationWhenInUseUsageDescription" \
+            "$PLIST" 2>/dev/null || true
+
+          /usr/libexec/PlistBuddy \
+            -c "Add :NSLocationWhenInUseUsageDescription string A localização é utilizada durante o registro do serviço para confirmar a unidade onde a operação está sendo realizada." \
+            "$PLIST"
+
+      - name: Configure code signing
         script: |
-          cd ios/App
-          agvtool next-version -all
-      - name: Build iOS Binary
+          xcode-project use-profiles
+
+      - name: Set build number
         script: |
-          xcodebuild -workspace ios/App/App.xcworkspace \
-            -scheme App \
-            -configuration Release \
-            -archivePath build/App.xcarchive \
-            archive \
-            CODE_SIGN_STYLE="Automatic"
+          cd "$CM_BUILD_DIR/ios/App"
+          agvtool new-version -all "$PROJECT_BUILD_NUMBER"
+
+      - name: Build signed IPA
+        script: |
+          xcode-project build-ipa \
+            --project "$CM_BUILD_DIR/ios/App/App.xcodeproj" \
+            --scheme "App"
+
     artifacts:
-      - build/*.ipa
-      - ~/Library/Developer/Xcode/DerivedData/**/Build/Products/Release-iphoneos/*.app
+      - ios/App/build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: false
+        submit_to_app_store: false
